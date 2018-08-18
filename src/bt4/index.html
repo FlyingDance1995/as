@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>    
+          <title>Index</title>
+    </head>
+   
+    <body>
+            Ngày:  <input style="width: 155px;" id="day" type="number" name="date" required /><br>
+            Tháng: <input style="width: 150px;" id="month" type="number" name="month" required /><br>
+            Năm:   <input style="width: 160px;" id="year" type="number" name="year" required /><br>
+            <input type="submit" value="Submit" onclick="myFunction()">
+            <p>Timestamp: <span id="demo"></span></p>
+        <script>
+            function myFunction(){
+                var day = document.getElementById("day").value;
+                var month = document.getElementById("month").value;
+                var year = document.getElementById("year").value;
+
+               if(day > 31||day < 0 || month < 0 || month > 12 || year<1970 || year>2018) {
+                document.getElementById("demo").innerHTML = " Lỗi !!! xin nhập lại";
+               }
+               else {
+                var date = year + "-" + month + "-" + day;
+                
+                var dateconvert = new Date(date);
+
+                var timestamp = Math.floor(dateconvert/ 1000);
+
+                document.getElementById("demo").innerHTML = timestamp + " milisecond";
+               }
+            } 
+            
+        </script>      
+    </body>
+
+</html>
